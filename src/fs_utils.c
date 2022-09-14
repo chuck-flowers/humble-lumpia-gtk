@@ -62,7 +62,6 @@ const int file_exists(const char *path) {
 
 	FILE *file = fopen(path, "r");
 	if (file == NULL) {
-		fclose(file);
 		return 0;
 	} else {
 		fclose(file);
