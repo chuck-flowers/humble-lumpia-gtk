@@ -18,6 +18,10 @@ OBJ_FILES=$(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 UI_DIR=ui
 UI_FILES=$(wildcard $(UI_DIR)/*.ui)
 
+# Desktop Files
+APPS_DIR=applications
+DESKTOP_FILES=$(wildcard $(APPS_DIR)/*.desktop)
+
 # Binary files
 BIN_DIR=bin
 BIN_NAME=humble-lumpia-gtk
@@ -31,11 +35,13 @@ all: $(BIN_FILE)
 install: $(BIN_FILE)
 	install -Dm 555 $(BIN_FILE) $(PREFIX)/bin/$(BIN_NAME)
 	install -Dm 444 -t $(PREFIX)/share/humble-lumpia-gtk/ui $(UI_FILES)
+	install -Dm 444 -t $(PREFIX)/share/applications $(DESKTOP_FILES)
 
 .PHONY: uninstall
 uninstall:
 	-rm $(PREFIX)/bin/$(BIN_NAME)
 	-rm -r $(PREFIX)/share/humble-lumpia-gtk/ui
+	-rm $(patsubst %, $(PREFIX)/share/%, $(DESKTOP_FILES))
 
 .PHONY: debug
 debug: $(BIN_FILE)
