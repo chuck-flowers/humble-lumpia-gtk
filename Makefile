@@ -36,12 +36,14 @@ install: $(BIN_FILE)
 	install -Dm 555 $(BIN_FILE) $(PREFIX)/bin/$(BIN_NAME)
 	install -Dm 444 -t $(PREFIX)/share/humble-lumpia-gtk/ui $(UI_FILES)
 	install -Dm 444 -t $(PREFIX)/share/applications $(DESKTOP_FILES)
+	install -Dm 444 -t $(PREFIX)/share/icons/hicolor/48x48/apps icons/humble-lumpia.png
 
 .PHONY: uninstall
 uninstall:
 	-rm -f $(PREFIX)/bin/$(BIN_NAME)
 	-rm -rf $(PREFIX)/share/humble-lumpia-gtk/ui
 	-rm -f $(patsubst %, $(PREFIX)/share/%, $(DESKTOP_FILES))
+	-rm -f $(PREFIX)/share/icons/hicolor/48x48/apps/humble-lumpia.png
 
 .PHONY: debug
 debug: $(BIN_FILE)

@@ -2,6 +2,7 @@
 Version=0.0.1
 Type=Application
 Name=Humble Lumpia
+Icon=humble-lumpia
 GenericName=Proton-GE Installer
 Comment=Install/Manage Proton-GE
 
