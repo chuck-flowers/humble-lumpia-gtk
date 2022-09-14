@@ -39,9 +39,9 @@ install: $(BIN_FILE)
 
 .PHONY: uninstall
 uninstall:
-	-rm $(PREFIX)/bin/$(BIN_NAME)
-	-rm -r $(PREFIX)/share/humble-lumpia-gtk/ui
-	-rm $(patsubst %, $(PREFIX)/share/%, $(DESKTOP_FILES))
+	-rm -f $(PREFIX)/bin/$(BIN_NAME)
+	-rm -rf $(PREFIX)/share/humble-lumpia-gtk/ui
+	-rm -f $(patsubst %, $(PREFIX)/share/%, $(DESKTOP_FILES))
 
 .PHONY: debug
 debug: $(BIN_FILE)
